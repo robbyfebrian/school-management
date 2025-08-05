@@ -24,3 +24,121 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.react-calendar {
+  width: 100% !important;
+  border: none !important;
+}
+
+.react-calendar__navigation__label__labelText {
+  font-weight: 600 !important;
+}
+
+.react-calendar__tile--now {
+  border-radius: 4px !important;
+  background-color: #ffdf20 !important;
+  color: black !important;
+}
+
+.react-calendar__tile--active {
+  border-radius: 4px !important;
+  background-color: #8ec5ff !important;
+  color: black !important;
+}
+
+.rbc-btn-group:first-child {
+  display: none !important;
+}
+
+.rbc-btn-group:last-child {
+  font-size: 12px !important;
+}
+
+.rbc-btn-group:last-child button {
+  border: none !important;
+  background-color: #f1f0ff !important;
+  margin-left: 2px !important;
+}
+
+.rbc-toolbar button.rbc-active {
+  background-color: #dbdafe;
+  box-shadow: none !important;
+}
+
+.rbc-toolbar-label {
+  text-align: right !important;
+  padding: 0px 20px !important;
+}
+
+.rbc-time-view {
+  border-color: #eee !important;
+  border-radius: 8px !important;
+}
+
+.rbc-time-content {
+  border-top: 0px !important;
+}
+
+.rbc-time-header {
+  display: none !important;
+}
+
+.rbc-time-gutter.rbc-time-column {
+  font-size: 12px !important;
+}
+
+.rbc-time-gutter.rbc-time-column .rbc-timeslot-group {
+  font-size: 12px !important;
+  padding: 0 20px !important;
+}
+
+.rbc-timeslot-group {
+  background-color: #f7fdff !important;
+}
+
+.rbc-day-slot {
+  font-size: 14px !important;
+}
+
+.rbc-event {
+  border: none !important;
+  margin: 6 6 !important;
+  width: 99% !important;
+  /* flex-flow: nowrap !important; */
+  gap: 4px !important;
+}
+
+.rbc-event-label {
+  font-size: 12px !important;
+  color: gray !important;
+}
+
+.rbc-event-content {
+  margin-top: 2px !important;
+  color: black !important;
+}
+
+.rbc-event:nth-child(1) {
+  background-color: #b4eeba !important;
+}
+.rbc-event:nth-child(2) {
+  background-color: #e0f7fa !important;
+}
+.rbc-event:nth-child(3) {
+  background-color: #ffe0b2 !important;
+}
+.rbc-event:nth-child(4) {
+  background-color: #e1bee7 !important;
+}
+.rbc-event:nth-child(5) {
+  background-color: #c8e6c9 !important;
+}
+.rbc-event:nth-child(6) {
+  background-color: #fff9c4 !important;
+}
+.rbc-event:nth-child(7) {
+  background-color: #ffccbc !important;
+}
+.rbc-event:nth-child(8) {
+  background-color: #b3e5fc !important;
+}
