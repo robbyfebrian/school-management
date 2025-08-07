@@ -13,32 +13,32 @@ import {
 } from 'recharts';
 
 const data = [
-    {
-        month: 'Jan',
-        income: 12000,
-        expense: 9000,
-    },
-    {
-        month: 'Feb',
-        income: 13500,
-        expense: 9500,
-    },
-    {
-        month: 'Mar',
-        income: 12800,
-        expense: 11000,
-    },
-    {
-        month: 'Apr',
-        income: 14500,
-        expense: 10500,
-    },
-    {
-        month: 'May',
-        income: 13800,
-        expense: 12000,
-    },
-    {
+  {
+    month: 'Jan',
+    income: 12000,
+    expense: 9000,
+  },
+  {
+    month: 'Feb',
+    income: 13500,
+    expense: 9500,
+  },
+  {
+    month: 'Mar',
+    income: 12800,
+    expense: 11000,
+  },
+  {
+    month: 'Apr',
+    income: 14500,
+    expense: 10500,
+  },
+  {
+    month: 'May',
+    income: 13800,
+    expense: 12000,
+  },
+  {
     month: 'Jun',
     income: 18000,
     expense: 12000,
@@ -70,10 +70,7 @@ export default function FinanceChart() {
               bottom: 5,
             }}
           >
-            <CartesianGrid
-              strokeDasharray='3 3'
-              stroke='#ddd'
-            />
+            <CartesianGrid strokeDasharray='3 3' stroke='#ddd' />
             <XAxis
               dataKey='month'
               style={{ fontSize: '12px' }}

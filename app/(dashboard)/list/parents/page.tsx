@@ -1,16 +1,13 @@
-import Pagination from '@/app/components/Pagination';
-import Table from '@/app/components/Table';
-import TableSearch from '@/app/components/TableSearch';
-import { Parent } from '@/app/components/data-type/Parent';
-import { parentsData, role, studentsData } from '@/lib/data';
+import FormModal from '@/components/FormModal';
+import Pagination from '@/components/Pagination';
+import Table from '@/components/Table';
+import TableSearch from '@/components/TableSearch';
+import { Parent } from '@/components/data-type/types';
+import { parentsData, role } from '@/lib/data';
 import {
   ArrowDownWideNarrowIcon,
-  EyeIcon,
-  PlusIcon,
   SlidersHorizontalIcon,
-  TrashIcon,
 } from 'lucide-react';
-import Link from 'next/link';
 
 const tableHeads = [
   {
@@ -54,17 +51,22 @@ export default function ParentListPage() {
       <td className='hidden md:table-cell'>{item.phone}</td>
       <td className='hidden md:table-cell'>{item.address}</td>
       <td>
-        <div className='flex gap-2 items-center'>
-          <Link
-            href={`/list/parents/${item.id}`}
-            className='flex items-center justify-center bg-blue-400 rounded-full p-2'
-          >
-            <EyeIcon size={16} color='white' />
-          </Link>
+        <div className='flex gap-2 items-center justify-end mr-4'>
           {role === 'admin' && (
-            <div className='flex items-center justify-center bg-yellow-400 rounded-full p-2'>
-              <TrashIcon size={16} color='white' />
-            </div>
+            <>
+              <FormModal
+                table='parent'
+                type='update'
+                data={item}
+                icon='SquarePenIcon'
+              />
+              <FormModal
+                table='parent'
+                type='delete'
+                id={item.id}
+                icon='TrashIcon'
+              />
+            </>
           )}
         </div>
       </td>
@@ -84,17 +86,11 @@ export default function ParentListPage() {
             <ArrowDownWideNarrowIcon size={16} />
           </div>
           {role === 'admin' && (
-            <div className='bg-yellow-400 p-2 rounded-xl shadow-sm flex items-center justify-center'>
-              <PlusIcon size={16} />
-            </div>
+            <FormModal type='create' icon='PlusIcon' table='parent' />
           )}
         </div>
       </div>
-      <Table
-        tableHeads={tableHeads}
-        renderRow={renderRow}
-        data={parentsData}
-      />
+      <Table tableHeads={tableHeads} renderRow={renderRow} data={parentsData} />
       <Pagination />
     </section>
   );

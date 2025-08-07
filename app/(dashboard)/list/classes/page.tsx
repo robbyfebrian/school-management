@@ -1,16 +1,10 @@
-import Pagination from '@/app/components/Pagination';
-import Table from '@/app/components/Table';
-import TableSearch from '@/app/components/TableSearch';
-import { Class } from '@/app/components/data-type/Class';
+import FormModal from '@/components/FormModal';
+import Pagination from '@/components/Pagination';
+import Table from '@/components/Table';
+import TableSearch from '@/components/TableSearch';
+import { Class } from '@/components/data-type/types';
 import { classesData, role } from '@/lib/data';
-import {
-  ArrowDownWideNarrowIcon,
-  EyeIcon,
-  PlusIcon,
-  SlidersHorizontalIcon,
-  TrashIcon,
-} from 'lucide-react';
-import Link from 'next/link';
+import { ArrowDownWideNarrowIcon, SlidersHorizontalIcon } from 'lucide-react';
 
 const tableHeads = [
   {
@@ -45,25 +39,28 @@ export default function ClassListPage() {
       key={item.id}
     >
       <td className='flex gap-2 items-center py-4'>
-
-          <h3 className='text-sm font-semibold'>{item.name}</h3>
-
+        <h3 className='text-sm font-semibold'>{item.name}</h3>
       </td>
       <td className='hidden md:table-cell'>{item.capacity}</td>
       <td className='hidden md:table-cell'>{item.grade}</td>
       <td className='hidden md:table-cell'>{item.supervisor}</td>
       <td>
-        <div className='flex gap-2 items-center'>
-          <Link
-            href={`/list/parents/${item.id}`}
-            className='flex items-center justify-center bg-blue-400 rounded-full p-2'
-          >
-            <EyeIcon size={16} color='white' />
-          </Link>
+        <div className='flex gap-2 items-center justify-end mr-4'>
           {role === 'admin' && (
-            <div className='flex items-center justify-center bg-yellow-400 rounded-full p-2'>
-              <TrashIcon size={16} color='white' />
-            </div>
+            <>
+              <FormModal
+                table='class'
+                type='update'
+                data={item}
+                icon='SquarePenIcon'
+              />
+              <FormModal
+                table='class'
+                type='delete'
+                id={item.id}
+                icon='TrashIcon'
+              />
+            </>
           )}
         </div>
       </td>
@@ -73,7 +70,7 @@ export default function ClassListPage() {
   return (
     <section className='flex flex-col flex-1 bg-white rounded-xl shadown-md border border-gray-200 p-4'>
       <div className='flex items-center justify-between'>
-        <h1 className='font-semibold text-xl'>All Teachers</h1>
+        <h1 className='font-semibold text-xl'>All Classes</h1>
         <div className='flex items-center gap-2'>
           <TableSearch />
           <div className='bg-yellow-400 p-2 rounded-xl shadow-sm flex items-center justify-center'>
@@ -83,9 +80,7 @@ export default function ClassListPage() {
             <ArrowDownWideNarrowIcon size={16} />
           </div>
           {role === 'admin' && (
-            <div className='bg-yellow-400 p-2 rounded-xl shadow-sm flex items-center justify-center'>
-              <PlusIcon size={16} />
-            </div>
+            <FormModal type='create' icon='PlusIcon' table='class' />
           )}
         </div>
       </div>

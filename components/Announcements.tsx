@@ -27,10 +27,10 @@ export default function Announcements() {
         <span className='text-xs text-gray-500'></span>
       </div>
       {announcements.map((announcement) => (
-        <div className="p-4 even:bg-blue-200 odd:bg-purple-200 shadow-sm rounded-md" key={announcement.id}>
+        <div className="p-4 even:bg-blue-100 odd:bg-purple-100 shadow-sm rounded-md" key={announcement.id}>
             <div className='flex items-center justify-between mb-2'>
-              <h1 className='font-bold text-sm tracking-tight'>{announcement.title}</h1>
-              <span className='text-xs text-gray-500 px-1 py-1 rounded-sm bg-white/60'>{announcement.time}</span>
+              <h1 className='font-bold text-sm tracking-tight line-clamp-1'>{announcement.title}</h1>
+              <span className='min-w-max text-[10px] lg:text-xs text-gray-500 px-1 py-1 rounded-sm bg-white/60'>{announcement.time}</span>
             </div>
             <p className='text-xs text-gray-500 leading-tight'>{announcement.description}</p>
         </div>

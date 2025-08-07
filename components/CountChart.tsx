@@ -4,7 +4,6 @@ import { EllipsisIcon, Users2 } from 'lucide-react';
 import {
   RadialBarChart,
   RadialBar,
-  Legend,
   ResponsiveContainer,
 } from 'recharts';
 

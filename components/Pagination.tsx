@@ -9,7 +9,7 @@ export default async function Pagination() {
                 <button className="px-3 py-1 rounded-sm">...</button>
                 <button className="px-3 py-1 rounded-sm">10</button>
             </div>
-            <button className="bg-blue-300 py-1 px-3 font-semibold text-sm rounded-sm disabled:opacity-50 disabled:cursor-not-allowed">Next</button>
+            <button className="bg-blue-300 py-1 px-3 font-semibold text-sm rounded-lg disabled:opacity-50 disabled:cursor-not-allowed">Next</button>
         </div>
     )
 }

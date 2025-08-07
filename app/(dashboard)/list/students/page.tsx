@@ -1,7 +1,8 @@
-import Pagination from '@/app/components/Pagination';
-import Table from '@/app/components/Table';
-import TableSearch from '@/app/components/TableSearch';
-import { Student } from '@/app/components/data-type/Student';
+import FormModal from '@/components/FormModal';
+import Pagination from '@/components/Pagination';
+import Table from '@/components/Table';
+import TableSearch from '@/components/TableSearch';
+import { Student } from '@/components/data-type/types';
 import { role, studentsData } from '@/lib/data';
 import {
   ArrowDownWideNarrowIcon,
@@ -52,7 +53,7 @@ export default function StudentListPage() {
     >
       <td className='flex gap-2 items-center py-4'>
         <Image
-          alt='teacher-image'
+          alt='student-image'
           src={item.photo}
           width={20}
           height={20}
@@ -68,17 +69,20 @@ export default function StudentListPage() {
       <td className='hidden md:table-cell'>{item.phone}</td>
       <td className='hidden md:table-cell'>{item.address}</td>
       <td>
-        <div className='flex gap-2 items-center'>
+        <div className='flex gap-2 items-center justify-end mr-4'>
           <Link
             href={`/list/students/${item.id}`}
-            className='flex items-center justify-center bg-blue-400 rounded-full p-2'
+            className='flex items-center justify-center bg-blue-300 rounded-full p-2'
           >
             <EyeIcon size={16} color='white' />
           </Link>
           {role === 'admin' && (
-            <div className='flex items-center justify-center bg-yellow-400 rounded-full p-2'>
-              <TrashIcon size={16} color='white' />
-            </div>
+            <FormModal
+              type='delete'
+              table='student'
+              icon='TrashIcon'
+              id={item.id}
+            />
           )}
         </div>
       </td>
@@ -88,7 +92,7 @@ export default function StudentListPage() {
   return (
     <section className='flex flex-col flex-1 bg-white rounded-xl shadown-md border border-gray-200 p-4'>
       <div className='flex items-center justify-between'>
-        <h1 className='font-semibold text-xl'>All Teachers</h1>
+        <h1 className='font-semibold text-xl'>All Students</h1>
         <div className='flex items-center gap-2'>
           <TableSearch />
           <div className='bg-yellow-400 p-2 rounded-xl shadow-sm flex items-center justify-center'>
@@ -98,9 +102,7 @@ export default function StudentListPage() {
             <ArrowDownWideNarrowIcon size={16} />
           </div>
           {role === 'admin' && (
-            <div className='bg-yellow-400 p-2 rounded-xl shadow-sm flex items-center justify-center'>
-              <PlusIcon size={16} />
-            </div>
+            <FormModal type='create' table='student' icon='PlusIcon' />
           )}
         </div>
       </div>

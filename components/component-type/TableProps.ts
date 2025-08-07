@@ -1,5 +1,3 @@
-import { Teacher } from '../data-type/Teacher';
-
 export type TableHead = {
   header: string;
   accessor: string;

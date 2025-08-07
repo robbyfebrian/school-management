@@ -1,9 +1,9 @@
-import Announcements from '@/app/components/Announcements';
-import AttendanceChart from '@/app/components/AttandanceChart';
-import CountChart from '@/app/components/CountChart';
-import EventCalendar from '@/app/components/EventCalendar';
-import FinanceChart from '@/app/components/FinanceChart';
-import UserCard from '@/app/components/UserCard';
+import Announcements from '@/components/Announcements';
+import AttendanceChart from '@/components/AttandanceChart';
+import CountChart from '@/components/CountChart';
+import EventCalendar from '@/components/EventCalendar';
+import FinanceChart from '@/components/FinanceChart';
+import UserCard from '@/components/UserCard';
 
 export default function AdminPage() {
   return (
